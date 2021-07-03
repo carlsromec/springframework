@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+    http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+
+
+    <bean id="miInforme" class="com.pring.inversionofcontrol.informe.Informe">
+
+    </bean>
+    <!-- inyeccionde la dependencia con con el setter: nota: en propiedad name el nombre es elmismo del
+    setter con minuscula y sin anteponer la palabra clave "set"
+    Scope, tiene por defecto singleton , en el caso de crear objetosdiferentes apuntado la memoria adistintos
+    espacios usar el patron prototype
+    -->
+    <bean id="miSecretarioEmpleado" class="com.pring.inversionofcontrol.empleado.SecretarioEmpleado" scope="prototype">
+        <property name="nuevoInforme" ref="miInforme"></property>
+    </bean>
+
+
+</beans>
